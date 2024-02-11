@@ -1,0 +1,73 @@
+﻿@using Domain.Entities;
+@model WA_HamburgerProjesiMVC_100124.Models.UserDetailsVM
+
+@{
+    ViewData["Title"] = "UserDetails";
+    Layout = "~/Views/Shared/AdminLayout_.cshtml";
+}
+
+<h1>Orders</h1>
+
+<div>
+    <h4>Order Details</h4>
+    <hr />
+
+    <h3> @Model.FirstName @Model.LastName 's Orders</h3>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Products
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                TotalPrice
+            </th>
+            <th>
+                CreatedDate
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+        }
+        @foreach (var item in Model.Orders)
+        {
+            <tr>
+               <td> @i </td>
+               <td>
+                    @foreach (Menu m in item.Menus)
+                    {
+                        if(m.Name != null)
+                            Html.DisplayFor(modelItem => m.Name);
+                    }
+               </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatus)
+                </td>
+                
+            </tr>
+            i++;
+        }
+    </tbody>
+</table>
+

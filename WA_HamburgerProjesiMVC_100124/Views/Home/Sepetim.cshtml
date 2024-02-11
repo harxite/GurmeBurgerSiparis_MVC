@@ -1,0 +1,223 @@
+Sepetim.cshtml
+@using Domain.Entities
+@model SiparisVM
+
+
+<div id="error"></div>
+<form asp-action="ApproveOrder" method="post">
+
+    <div id="container">
+        @if (Model == null || (Model.menus.Count == 0 && Model.products.Count == 0))
+        {
+            <h2>Sepetinizde ürün bulunmamaktadır</h2>
+        }
+        else if (Model.menus.Count == 0 && Model.products.Count > 0)
+        {
+            <h2>Sepetinizde ürün var </h2>
+            <hr />
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th> Ürün Adı</th>
+                        <th> Ürün Adedi</th>
+                        <th> Ürün Fiyatı</th>
+                        <th> Toplam Fiyat</th>
+                        <th> Sepetten Çıkar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product product in Model.products)
+                    {
+                        <tr class="product-row">
+                            <td></td>
+                            <td>@product.Name</td>
+                            <td>
+                                <button class="btn btn-secondary" onclick="ChangeQuantity(@product.Id, -1)">-</button>
+                                <span id="quantity_@product.Id">@product.Quantity</span>
+                                <button class="btn btn-secondary" onclick="ChangeQuantity(@product.Id, 1)">+</button>
+                            </td>
+                            <td class="price">@product.Price</td>
+                            <td class="total"><span id="totalAmount_@product.Id">@product.Price * @product.Quantity</span></td>
+                            <td>
+                                <button class="btn btn-danger" onclick="DeleteProduct(@product.Id)">Remove</button>
+                            </td>
+                        </tr>
+                    }
+                    @for (int i = 0; i < Model.products.Count; i++)
+                    {
+                        <input type="hidden" asp-for="products[i].Id" />
+                        <input type="hidden" asp-for="products[i].Name" />
+                        <input type="hidden" asp-for="products[i].Quantity" />
+                        <input type="hidden" asp-for="products[i].Price" />
+                    }
+                </tbody>
+            </table>
+            <br />
+        }
+        else if (Model.products.Count == 0 && Model.menus.Count > 0)
+        {
+            <h2>Sepetinizde menü var</h2>
+            <hr />
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th> </th>
+                        <th> Ürün Adı</th>
+                        <th> Ürün Adedi</th>
+                        <th> Ürün Fiyatı</th>
+                        <th> Toplam Fiyat</th>
+                        <th> Sepetten Çıkar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Menu menu in Model.menus)
+                    {
+                        <tr>
+                            <td></td>
+                            <td>@menu.Name</td>
+                            <td>
+                                <button class="btn btn-secondary" onclick="ChangeQuantityMenu(@menu.Id, -1)">-</button>
+                                <span id="quantity_@menu.Id">@menu.Quantity</span>
+                                <button class="btn btn-secondary" onclick="ChangeQuantityMenu(@menu.Id, 1)">+</button>
+                            </td>
+                            <td>@menu.Price</td>
+                            <td>@(menu.Price * menu.Quantity)</td>
+                            <td>
+                                <button class="btn btn-danger" onclick="DeleteMenu(@menu.Id)">Remove</button>
+                            </td>
+                        </tr>
+                    }
+                    @for (int i = 0; i < Model.menus.Count; i++)
+                    {
+                        <input type="hidden" asp-for="menus[i].Id" />
+                        <input type="hidden" asp-for="menus[i].Name" />
+                        <input type="hidden" asp-for="menus[i].Quantity" />
+                        <input type="hidden" asp-for="menus[i].Price" />
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h2>Sepetinizde hem menü hem ürün var</h2>
+            <hr />
+            <table class="table table-bordered">
+                <thead>
+                <th> </th>
+                <th> Ürün Adı</th>
+                <th> Ürün Adedi</th>
+                <th> Ürün Fiyatı</th>
+                <th> Toplam Fiyat</th>
+                <th> Sepetten Çıkar</th>
+                </thead>
+                <tbody>
+                    @foreach (Menu menu in Model.menus)
+                    {
+                        <tr>
+                            <td></td>
+                            <td>@menu.Name</td>
+                            <td>
+                                <button class="btn btn-secondary" onclick="ChangeQuantityMenu(@menu.Id, -1)">-</button>
+                                <span id="quantity_@menu.Id">@menu.Quantity</span>
+                                <button class="btn btn-secondary" onclick="ChangeQuantityMenu(@menu.Id, 1)">+</button>
+                            </td>
+                            <td>@menu.Price</td>
+                            <td>@(menu.Price * menu.Quantity)</td>
+                            <td>
+                                <button class="btn btn-danger" onclick="DeleteMenu(@menu.Id)">Remove</button>
+                            </td>
+                        </tr>
+                    }
+                    @foreach (Product product in Model.products)
+                    {
+                        <tr>
+                            <td></td>
+                            <td>@product.Name</td>
+                            <td>
+                                <button class="btn btn-secondary" onclick="ChangeQuantity(@product.Id, -1)">-</button>
+                                <span id="quantity_@product.Id">@product.Quantity</span>
+                                <button class="btn btn-secondary" onclick="ChangeQuantity(@product.Id, 1)">+</button>
+                            </td>
+                            <td>@product.Price</td>
+                            <td>@(product.Price * product.Quantity)</td>
+                            <td>
+                                <button class="btn btn-danger" onclick="DeleteProduct(@product.Id)">Remove</button>
+                            </td>
+                        </tr>
+                    }
+                    @for (int i = 0; i < Model.menus.Count; i++)
+                    {
+                        <input type="hidden" asp-for="menus[i].Id" />
+                        <input type="hidden" asp-for="menus[i].Name" />
+                        <input type="hidden" asp-for="menus[i].Quantity" />
+                        <input type="hidden" asp-for="menus[i].Price" />
+                    }
+
+                    @for (int i = 0; i < Model.products.Count; i++)
+                    {
+                        <input type="hidden" asp-for="products[i].Id" />
+                        <input type="hidden" asp-for="products[i].Name" />
+                        <input type="hidden" asp-for="products[i].Quantity" />
+                        <input type="hidden" asp-for="products[i].Price" />
+                    }
+
+                </tbody>
+            </table>
+        }
+    </div>
+
+    @foreach (Menu menu in Model.menus)
+    {
+        <input type="hidden" name="menuIds" value="@menu.Id" />
+    }
+
+    <input type="hidden" name="userId" value="@Model.UserId" />
+
+    <button id="approveOrderBtn" class="btn btn-outline-success" type="submit" asp-action="ApproveOrder">
+        Sepeti
+        Onayla
+    </button>
+</form>
+
+<script>
+    $("#approveOrderForm").submit(function (event) {
+        event.preventDefault(); 
+
+       
+        var formData = $(this).serializeArray();
+
+        
+        var dataObject = {};
+        for (var i = 0; i < formData.length; i++) {
+            var name = formData[i].name;
+            var value = formData[i].value;
+
+         
+            if (name.endsWith("[]")) {
+            
+                name = name.slice(0, -2);
+            }
+
+            
+            dataObject[name] = value;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: $(this).attr("action"),
+            contentType: "application/json",
+            data: JSON.stringify(dataObject), 
+            success: function (data) {
+               
+                console.log("İşlem başarılı");
+            },
+            error: function (error) {
+               
+                console.error("Hata oluştu", error);
+            }
+        });
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="@Url.Content("~/js/sepetJs.js")"></script>

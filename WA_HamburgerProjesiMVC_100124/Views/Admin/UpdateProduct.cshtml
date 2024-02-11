@@ -1,0 +1,74 @@
+﻿@model WA_HamburgerProjesiMVC_100124.Models.UpdateProductVM
+
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "AdminLayout_";
+}
+
+<h1>Product</h1>
+
+<h4>Update Product</h4>
+<hr />
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <text> @TempData["message"] </text>
+    </div>
+}
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Product Informations</h4>
+                    <p class="card-description"> Please fill in the information completely. </p>
+                    <form class="forms-sample" asp-action="UpdateProduct" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input asp-for="Id" class="form-control" hidden />
+                        <div class="form-group row">
+                            <label asp-for="Name" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="Name" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="Price" class="col-sm-3 col-form-label"></label>
+                            <div class="col-sm-9">
+                                <input asp-for="Price" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="CategoryId" class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
+                                <select asp-for="CategoryId" asp-items="@Model.Categories" class="form-select">
+                                    <option value="">Choose a category..</option>
+                                </select>
+                            </div>
+                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row">
+                            <label for="Image" class="col-sm-3 col-form-label"> Image </label>
+                            <div class="col-sm-1"></div>
+                            <img src="/@Model.ImagePath" alt="Current Image" class="img-thumbnail col-sm-6"  /><br />
+                        </div>
+                        <div class="form-group row">
+                            <label asp-for="ImageFile" class="col-sm-3 col-form-label">Image File</label>
+                            <div class="col-sm-9">
+                                <input asp-for="ImageFile" type="file" accept="image/*" class="form-control" />
+                            </div>
+                            <span asp-validation-for="ImageFile" class="text-danger"></span>
+                        </div>
+                        <div class="form-group row">
+                            <input type="submit" value="Update" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,149 @@
+﻿@model DashboardVM
+
+@{
+    Layout = "AdminLayout_";
+}
+
+<div class="row">
+    <div class="col-sm-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h5>Toplam Kullanici </h5>
+                <div class="row">
+                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                            <h2 class="mb-0">@Model.UserCount</h2>
+                            <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">Kayitli tum kullanicilarin sayisi</h6>
+                    </div>
+                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                        <i class="icon-lg mdi mdi-human-male-female text-primary ml-auto"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h5>Toplam Siparis </h5>
+                <div class="row">
+                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                            <h2 class="mb-0">@Model.OrderCount</h2>
+                            <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">Alinan tum siparislerin toplam miktari</h6>
+                    </div>
+                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                        <i class="icon-lg mdi mdi-cart-outline text-warning ml-auto"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h5>Toplam Ciro</h5>
+                <div class="row">
+                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                            <h2 class="mb-0">@Model.TotalPayment</h2>
+                            <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">Tum siparislerden elde edilen ciro</h6>
+                    </div>
+                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                        <i class="icon-lg mdi mdi-cash-multiple text-success ml-auto"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h5>Toplam Urun Sayisi </h5>
+                <div class="row">
+                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                            <h2 class="mb-0">@Model.ProductCount</h2>
+                            <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">Envanterde bulunan aktif urun sayisi</h6>
+                    </div>
+                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                        <i class="icon-lg mdi mdi-cards text-danger ml-auto"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h5>Toplam Menu Sayisi</h5>
+                <div class="row">
+                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                            <h2 class="mb-0">@Model.MenuCount</h2>
+                            <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">Envanterde bulunan aktif menu sayisi</h6>
+                    </div>
+                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                        <i class="icon-lg mdi mdi-book-minus text-info ml-auto"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h5>Urun Ciro</h5>
+                <div class="row">
+                    <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                        <div class="d-flex d-sm-block d-md-flex align-items-center">
+                            <h2 class="mb-0">@Model.TotalProductsPayment</h2>
+                            <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                        </div>
+                        <h6 class="text-muted font-weight-normal">Ekstra urunlerden elde edilen toplam ciro</h6>
+                    </div>
+                    <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                        <i class="icon-lg mdi mdi-cash-usd text-success ml-auto"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Ciro Grafigi</h4>
+                <canvas id="lineChart" style="height:250px"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Siparis Grafigi</h4>
+                <canvas id="barChart" style="height:230px"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var dailyRevenues = '@ViewBag.DailyRevenues';
+    var dailyOrderCounts = '@ViewBag.DailyOrderCounts';
+</script>

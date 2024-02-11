@@ -1,0 +1,19 @@
+﻿@using Domain.Entities;
+@model AppUser
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="bg-info text-white">Home - Index</h1>
+
+<br />
+
+@if (User?.Identity?.IsAuthenticated ?? false)
+{
+    <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Log Out</a>
+
+    <a asp-controller="Account" asp-action="Update" class="btn btn-outline-warning" asp-route-id="@Model.Id">Update</a>
+
+    <a asp-controller="Account" asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@Model.Id">Delete</a>
+}

@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WA_HamburgerProjesiMVC_100124</title>
+       <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WA_HamburgerProjesiMVC_100124.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link href="~/css/perfect-scrollbar.css" rel="stylesheet" />
+  
+</head>
+<body>
+
+    <div class="container-scroller">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+                <a class="sidebar-brand brand-logo" asp-action="Dashboard" asp-controller="Admin"><img src="../../assets/images/gurme-burger-white-transparent.png" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" asp-action="Dashboard" asp-controller="Admin"><img src="../../assets/images/gurme-burger-favicon-white.png" alt="logo" /></a>
+            </div>
+            <ul class="nav">
+                <li class="nav-item profile">
+                    <div class="profile-desc">
+                        <div class="profile-pic">
+                            <div class="count-indicator">
+                                <img class="img-xs rounded-circle " src="../../assets/images/profile-icon.png" alt="">
+                                <span class="count bg-success"></span>
+                            </div>
+                            <div class="profile-name">
+                                <h5 class="mb-0 font-weight-normal">Gurme Burger </h5>
+                                <span>Admin</span>
+                            </div>
+                        </div>
+                        <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
+                            <div class="dropdown-divider"></div>
+                            <a asp-action="Update" asp-controller="Account" class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-dark rounded-circle">
+                                        <i class="mdi mdi-onepassword  text-info"></i>
+                                    </div>
+                                </div>
+                                <div class="preview-item-content">
+                                    <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
+                                </div>
+                            </a>
+                    </div>
+                </li>
+                <li class="nav-item nav-category">
+                    <span class="nav-link">Navigation</span>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Dashboard" asp-controller="Admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-view-dashboard"></i>
+                        </span>
+                        <span class="menu-title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Orders" asp-controller="Admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-cart"></i>
+                        </span>
+                        <span class="menu-title">Orders</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Users" asp-controller="Admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-account-multiple"></i>
+                        </span>
+                        <span class="menu-title">Users</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Menus" asp-controller="Admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-book-multiple"></i>
+                        </span>
+                        <span class="menu-title">Menus</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Products" asp-controller="Admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-cards-outline"></i>
+                        </span>
+                        <span class="menu-title">Products</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Categories" asp-controller="Admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-view-grid"></i>
+                        </span>
+                        <span class="menu-title">Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-action="Messages" asp-controller="Admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-message"></i>
+                        </span>
+                        <span class="menu-title">Messages</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+        <div class="container-fluid page-body-wrapper">
+            <nav class="navbar p-0 fixed-top d-flex flex-row">
+                <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/gurme-burger-favicon-white.png" alt="logo" /></a>
+                </div>
+                <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item nav-settings d-none d-lg-block">
+                            <a class="nav-link" asp-action="Dashboard" asp-controller="Admin">
+                                <i class="mdi mdi-view-grid"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                                <div class="navbar-profile">
+                                    <img class="img-xs rounded-circle" src="../../assets/images/profile-icon.png" alt="">
+                                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Gurme Burger Admin</p>
+                                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                                <a class="btn btn-danger preview-subject mb-1" asp-action="Logout" asp-controller="Account">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="mdi mdi-format-line-spacing"></span>
+                    </button>
+                </div>
+            </nav>
+
+            <div class="main-panel">
+
+                <div class="content-wrapper">
+                    @RenderBody()
+                </div>
+
+                <br />
+                <footer class="border-top footer text-muted">
+                    <div class="container">
+                        &copy; 2024 - WA_HamburgerProjesiMVC_100124 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/vendor.bundle.base.js"></script>
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/hoverable-collapse.js"></script>
+    <script src="~/js/misc.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/todolist.js"></script>
+   
+    @await RenderSectionAsync("Scripts", required: false)
+    <script src="../../assets/js/chart.js?v=4"></script>
+</body>
+</html>

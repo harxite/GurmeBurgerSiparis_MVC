@@ -1,0 +1,52 @@
+﻿@using Domain.Entities;
+@model WA_HamburgerProjesiMVC_100124.Models.OrderDetailsVM
+
+@{
+    ViewData["Title"] = "OrderDetails";
+    Layout = "~/Views/Shared/AdminLayout_.cshtml";
+}
+
+<h1>OrderDetails</h1>
+
+<div>
+    <h4>OrderDetailsVM</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AppUser.FirstName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AppUser.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AppUser.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AppUser.LastName)
+        </dd>
+    </dl>
+</div>
+
+<h3> @Model.AppUser.FirstName 's Orders</h3>
+
+@if (Model.Menus.Count() == 0)
+{
+    <tr colspan="2"><p class="text-warning"> There are no menus inside the order.</p></tr>
+}
+
+<div class="d-flex flex-wrap">
+    @foreach (Menu item in Model.Menus)
+    {
+        if (item.Name != null)
+        {
+            <div class="card" style="width: 15rem; height: 11rem;">
+                <img class="card-img" src="/@item.ImagePath" alt="Card image cap">
+                <div class="card-title">
+                    <p class="card-text text-center">@item.Name</p>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+

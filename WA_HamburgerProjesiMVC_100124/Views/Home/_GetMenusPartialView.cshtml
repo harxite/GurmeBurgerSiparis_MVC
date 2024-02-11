@@ -1,0 +1,32 @@
+﻿@using Domain.Entities
+@model List<Menu>
+
+<main class="container-fluid" id="mainContainer">
+    <div class="card-group">
+        @foreach (Menu menu in Model)
+        {
+            <div class="card" data-search="@menu.Name.ToLower()">
+                <div class="image-container">
+                    <img src="/@menu.ImagePath" class="card-img-top vw-25" style="width:auto !important" ; alt="...">
+
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@menu.Name</h5>
+                    <p class="card-text">@menu.Description</p>
+                    <p class="card-text">@menu.Price Tl</p>
+                    <p class="card-text"><b> Ürünler:</b> </p>
+                    @foreach (Product product in menu.Products)
+                    {
+                        <p class="card-text">@product.Name</p>
+                    }
+
+                    <div class="overlay">
+                        <a class="btn btn-dark" asp-action="AddMenuToCard" asp-route-id="@menu.Id">Sepete Ekle</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+
+</main>

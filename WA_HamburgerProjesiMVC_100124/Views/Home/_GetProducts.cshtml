@@ -1,0 +1,24 @@
+﻿
+@using Domain.Entities
+@model List<Product>
+
+<main class="container-fluid" id="mainContainer">
+    <div class="card-group">
+        @foreach (Product product in Model)
+        {
+            <div class="card" data-search="@product.Name.ToLower()">
+                <div class="image-container">
+                    <img  src="/@product.ImagePath" class="card-img-top vw-25" style="width:auto !important" ; alt="...">
+                </div>
+                <div class="card-body" data-search="@product.Name.ToLower()">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">@product.Price Tl</p>
+                    <div class="overlay">
+                        <a class="btn btn-dark" asp-action="AddProductToCard" asp-route-id="@product.Id">Sepete Ekle</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</main>

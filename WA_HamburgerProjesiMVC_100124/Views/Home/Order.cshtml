@@ -1,0 +1,134 @@
+﻿@using Domain.Entities
+@model List<Menu>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "HomeLayout";
+}
+
+<div id="full-width-header" class="full-width">
+    <div class="triangle top"></div>
+    <div class="inner">
+        <div class="slide">
+            <div class="inner-slide">
+                <img src="~/img/okuz-burger-slider-yeni-4-min.jpg" width="1980" height="560">
+            </div>
+        </div>
+    </div>
+    <div class="triangle bottom"></div>
+</div>
+
+<div class="clear"></div>
+
+<div class="container full-page">
+    <div id="our-food" class="main-container">
+        <div class="row">
+            <div class="main-content col">
+                <div class="title">
+                    <h1></h1>
+                </div>
+                <div class="intro">
+                    <h2>Gurme Dünyasında Benzersiz Bir Lezzet Yolculuğu: Elit Mutfak Deneyimimiz!"</h2>
+                </div>
+                <div class="content">
+                    <p>Perspektiflerden ötesinde, nefes kesici bir lezzet deneyimi sizi bekliyor. Ürünlerimizdeki doğal hatanın içindeki zevkleri ve acıları keşfedin. Her biri özenle seçilmiş malzemelerle hazırlanan ürünlerimiz, sizi lezzet yolculuğuna davet ediyor. En taze ve kaliteli malzemelerle üretilen ürünlerimiz, damaklarınıza unutulmaz bir tat sunuyor. Sizi eşsiz bir gastronomik serüvene davet ediyoruz. Şimdi, lezzet dolu anlara adım atın!</p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div id="filter-foods">
+            <div class="filter button .grey-button" data-filter="all">Tüm Ürünler</div>
+            <div class="filter button .grey-button" data-filter=".burgers">Burgerler</div>
+            <div class="filter button .grey-button" data-filter=".beverages">İçecekler</div>
+            <div class="filter button .grey-button" data-filter=".condiments">Ekstra Malzemeler</div>
+            <div class="filter button .grey-button" data-filter=".snacks">Atıştırmalıklar</div>
+            <div class="filter button .grey-button" data-filter=".desserts">Tatlılar</div>
+        </div>
+        <div class="clear"></div>
+        <div class="row">
+            <div id="foods">
+                @foreach (Menu menu in Model)
+                {
+
+                    if (menu.Products.Any(x => x.CategoryId == 2))
+                    {
+                        <div class="food mix col beverages">
+                            <div class="food-picture">
+                                <img src="~/@menu.ImagePath" width="200" height="200" />
+                            </div>
+                            <div class="food-name">
+                                <h3>@menu.Name</h3>
+                                <h4 class="sub-title">@menu.Price &nbsp; &#x20BA;</h4>
+                            </div>
+                            <div style="margin-left:70px">
+                                <a class="button white-button" asp-action="AddMenuToCard" asp-route-id="@menu.Id">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    }
+                    else if (menu.Products.Any(x => x.CategoryId == 3))
+                    {
+                        <div class="food mix col condiments">
+                            <div class="food-picture">
+                                <img src="~/@menu.ImagePath" width="200" height="200" />
+                            </div>
+                            <div class="food-name">
+                                <h3>@menu.Name</h3>
+                                <h4 class="sub-title">@menu.Price &nbsp; &#x20BA;</h4>
+                            </div>
+                            <div style="margin-left:70px">
+                                <a class="button white-button" asp-action="AddMenuToCard" asp-route-id="@menu.Id">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    }
+                    else if (menu.Products.Any(x => x.CategoryId == 4))
+                    {
+                        <div class="food mix col snacks">
+                            <div class="food-picture">
+                                <img src="~/@menu.ImagePath" width="200" height="200" />
+                            </div>
+                            <div class="food-name">
+                                <h3>@menu.Name</h3>
+                                <h4 class="sub-title">@menu.Price &nbsp; &#x20BA;</h4>
+                            </div>
+                            <div style="margin-left:70px">
+                                <a class="button white-button" asp-action="AddMenuToCard" asp-route-id="@menu.Id">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    }
+                    else if (menu.Products.Any(x => x.CategoryId == 5))
+                    {
+                        <div class="food mix col desserts">
+                            <div class="food-picture">
+                                <img src="~/@menu.ImagePath" width="200" height="200" />
+                            </div>
+                            <div class="food-name">
+                                <h3>@menu.Name</h3>
+                                <h4 class="sub-title">@menu.Price &nbsp; &#x20BA;</h4>
+                            </div>
+                            <div style="margin-left:70px">
+                                <a class="button white-button" asp-action="AddMenuToCard" asp-route-id="@menu.Id">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="food mix col burgers">
+                            <div class="food-picture">
+                                <img src="~/@menu.ImagePath" width="200" height="200" />
+                            </div>
+                            <div class="food-name">
+                                <h3>@menu.Name</h3>
+                                <h4 class="sub-title">@menu.Price &nbsp; &#x20BA;</h4>
+                            </div>
+                            <div style="margin-left:70px">
+                                <a class="button white-button" asp-action="AddMenuToCard" asp-route-id="@menu.Id">Sepete Ekle</a>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clear space-area"></div>
+

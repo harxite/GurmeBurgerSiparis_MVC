@@ -1,0 +1,30 @@
+﻿@using WA_HamburgerProjesiMVC_100124.Models;
+
+@model LoginVM
+
+@{
+	ViewData["Title"] = "Login Page";
+}
+
+<h1 class="bg-info text-white">Login</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Login" method="post">
+	<input type="hidden" asp-for="ReturnUrl" />
+
+	<div class="form-group">
+		<label asp-for="UserName"></label>
+		<input asp-for="UserName" class="form-control" />
+	</div>
+	<div class="form-group">
+		<label asp-for="Password"></label>
+		<input type="password" asp-for="Password" class="form-control" />
+	</div>
+	<button type="submit" class="btn btn-primary">Log In</button>
+</form>
+
+<br />
+<br />
+
+<a class="btn btn-secondary" asp-action="Create">Sign Up</a>

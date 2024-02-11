@@ -1,0 +1,205 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "HomeLayout";
+}
+
+<div id="full-width-slider" class="full-width">
+
+    <div class="triangle top"></div>
+
+    <div class="inner">
+        <div class="slide">
+            <div class="inner-slide">
+                <div class="slide-desc">
+                    <h1>GURMEBURGER</h1>
+                    <span class="sub-title">
+                        <span class="sub-title-line">&nbsp;</span>
+                        <h2>Bu ay için özel indirimlerimizi kaçırmayın!</h2>
+                        <span class="sub-title-line">&nbsp;</span>
+                        <div class="clear"></div>
+                    </span>
+                    <h1></h1>
+                </div>
+
+                <img src="~/img/okuz-burger-slider-yeni-4-min.jpg" width="1600" height="1040">
+            </div>
+        </div>
+        <div class="slide">
+            <div class="inner-slide">
+                <div class="slide-desc">
+                    <h1>GURMEBURGER</h1>
+                    <span class="sub-title">
+                        <span class="sub-title-line">&nbsp;</span>
+                        <h2>Şimdi sipariş verin ve lezzetin tadını çıkarın</h2>
+                        <span class="sub-title-line">&nbsp;</span>
+                        <div class="clear"></div>
+                    </span>
+                    <h1></h1>
+                </div>
+                <img src="~/GuncelResimler/ArkaPlan5.jpg" width="1500" height="1040">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="controls">
+        <a href="#" class="left"><span class="icon-slider prev">&nbsp;</span></a>
+        <a href="#" class="right"><span class="icon-slider prev">&nbsp;</span></a>
+    </div>
+
+    <div class="slide-nav"></div>
+
+    <div class="triangle bottom"></div>
+</div>
+
+<div class="clear"></div>
+
+<div class="container">
+    <div id="featured" class="main-container">
+        <div class="row">
+            <div class="featured-left col">
+                <div class="title">
+                    <h1>Gurme Burger</h1>
+                    <h2 class="sub-title">Burger Sanatının Usta Ellerdeki Yansıması</h2>
+                </div>
+                <div class="content">
+                    <p>Restoranımızda burgerin sıradanlıktan çıkarak lezzetin zirvesine ulaştığı bir deneyim sizi bekliyor. Gurme burgerlerimiz, özenle seçilmiş en kaliteli malzemelerle hazırlanır ve ustaca kombinasyonlarla sizlere sunulur. Her bir ısırık, damaklarınızda bir festival başlatır; taze, lezzetli ve doyurucu. </p>
+                </div>
+                <div class="button-container">
+                    <a class="button grey-button" asp-action="About">Daha Fazla Bilgi İçin</a>
+                </div>
+            </div>
+            <div class="featured-right col">
+                <div class="featured-image">
+                    <img src="~/GuncelResimler/ChickenBuger.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="triangle top promotion"></div>
+<div class="container promotion">
+    <div id="promotion" class="main-container">
+        <div class="row">
+            <div class="promotion-title col">
+                <div class="title">
+                    <h1>Hemen Sipariş Ver</h1>
+                    <h2 class="sub-title">bir lokma mutluluk</h2>
+                </div>
+            </div>
+            <div class="promotion-button col">
+                <div class="button-container">
+                    <a class="button white-button" asp-action="Order">Ürünlere Gözat</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <ul id="promotion-product" class="row">
+            <li class="product col">
+                <div class="promotion-product-container">
+                    <span class="dot dot-left-top">&nbsp;</span><span class="dot dot-right-top">&nbsp;</span><span class="dot dot-left-bottom">&nbsp;</span><span class="dot dot-right-bottom">&nbsp;</span>
+
+                    <div class="promotion-product-image"><a href="#"><img src="~/GuncelResimler/GurmeBurger1.png"> </a></div>
+                    <div class="promotion-product-desc">
+                        <div class="promotion-product-title"><h4><a href="#">Lezzetli Burgerler</a></h4></div>
+                        <div class="promotion-product-content content"><p>Lezzetli bir deneyim için özenle seçilmiş taze malzemeler... </p></div>
+                    </div>
+                    <div class="price-tag"><span class="price">100₺</span></div>
+                </div>
+            </li>
+            <li class="product col">
+                <div class="promotion-product-container">
+                    <div class="promotion-product-container">
+                        <span class="dot dot-left-top">&nbsp;</span><span class="dot dot-right-top">&nbsp;</span><span class="dot dot-left-bottom">&nbsp;</span><span class="dot dot-right-bottom">&nbsp;</span>
+                        <div class="promotion-product-image"><a href="#"><img src="~/GuncelResimler/GurmeBurger2.png" /></a></div>
+                        <div class="promotion-product-desc">
+                            <div class="promotion-product-title"><h4><a href="#">Benzersiz Tavuk Burgeler </a></h4></div>
+                            <div class="promotion-product-content content"><p>"Taze çıtır tavuk butları, özel sos..."</p></div>
+                        </div>
+                        <div class="price-tag"><span class="price">90₺</span></div>
+                    </div>
+            </li>
+            <li class="product col">
+                <div class="promotion-product-container">
+                    <span class="dot dot-left-top">&nbsp;</span><span class="dot dot-right-top">&nbsp;</span><span class="dot dot-left-bottom">&nbsp;</span><span class="dot dot-right-bottom">&nbsp;</span>
+                    <div class="promotion-product-image"><a href="#"><img src="~/GuncelResimler/elma.png" /></a></div>
+                    <div class="promotion-product-desc">
+                        <div class="promotion-product-title"><h4><a href="#">Elmalı Çıtır</a></h4></div>
+                        <div class="promotion-product-content content"><p>Tarçın aromasıyla benzersiz bir deneyim...</p></div>
+                    </div>
+                    <div class="price-tag"><span class="price">20₺</span></div>
+                </div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+
+    <div class="clear space-area"></div>
+</div>
+<div class="triangle bottom promotion"></div>
+
+<div class="clear"></div>
+
+<div class="container latest-updates">
+    <div id="latest-updates" class="main-container">
+        <div class="row">
+            <div class="latest-news col">
+                <div class="title">
+                    <h3>Haberler</h1>
+                </div>
+                <ul id="list-updates">
+                    <li>
+                        <p class="date">30.07.2014</p>
+                        <p>Lezzet Şöleni: Yeni Restoranımız Açıldı!</p>
+                        <a href="#" class="icon-link arrow">&nbsp;</a>
+                    </li>
+                    <li>
+                        <p class="date">24.07.2014</p>
+                        <p>Gastronomi Harikası: Yeni Tatlar Restoranımızda Sizi Bekliyor!.</p>
+                        <a href="#" class="icon-link arrow">&nbsp;</a>
+                    </li>
+                    <li>
+                        <p class="date">14.07.2014</p>
+                        <p>Büyük Açılış: Yaratıcı Burgerlerimizle Tanışın!</p>
+                        <a href="#" class="icon-link arrow">&nbsp;</a>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+                <div class="button-container">
+                    <a class="button grey-button">Hepsine Gözat</a>
+                </div>
+            </div>
+            <div class="job-boards col">
+                <div class="title">
+                    <h3>İş İlanları</h1>
+                </div>
+                <ul id="list-updates" class="jobs">
+                    <li>
+                        <p class="date">30.07.2014</p>
+                        <p>Gurme lezzetlerin ustası olmaya hazır mısınız?</p>
+                        <a href="#" class="icon-link arrow">&nbsp;</a>
+                    </li>
+                    <li>
+                        <p class="date">24.07.2014</p>
+                        <p>Sıcak bir gülümseme ve hızlı hizmetle müşteri memnuniyetini en üst seviyeye çıkarmak ister misiniz? </p>
+                        <a href="#" class="icon-link arrow">&nbsp;</a>
+                    </li>
+                </ul>
+                <div class="clear"></div>
+                <div class="button-container">
+                    <a class="button grey-button">Hepsine Gözat</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="clear space-area"></div>
+</div>
+
+<div class="clear"></div>

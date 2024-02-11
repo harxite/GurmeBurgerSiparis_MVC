@@ -1,0 +1,16 @@
+﻿@model Domain.Entities.Message
+
+@{
+    ViewData["Title"] = "Message Details";
+    Layout = "~/Views/Shared/AdminLayout_.cshtml";
+}
+
+<h3 class="text-success">Title</h3>
+<blockquote class="blockquote blockquote-success">
+    @Model.Name
+</blockquote>
+
+<h3 class="text-primary">Message</h3>
+<blockquote class="blockquote blockquote-primary">
+    @Model.Content
+</blockquote>

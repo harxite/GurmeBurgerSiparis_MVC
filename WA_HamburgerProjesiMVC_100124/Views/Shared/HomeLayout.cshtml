@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WA_HamburgerProjesiMVC_100124</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:600,800,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href="~/css/style1.css" rel="stylesheet/less" />
+
+    <style>
+        .webkit #our-team h4.sub-title, .webkit #foods h4.sub-title {
+            background: #ef9e10; /* Old browsers */
+            background: -moz-linear-gradient(left, #ef9e10 40%, #ef6910 60%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right top, color-stop(40%,#ef9e10), color-stop(60%,#ef6910)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(left, #ef9e10 40%,#ef6910 60%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(left, #ef9e10 40%,#ef6910 60%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(left, #ef9e10 40%,#ef6910 60%); /* IE10+ */
+            background: linear-gradient(to right, #ef9e10 40%,#ef6910 60%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef9e10', endColorstr='#ef6910',GradientType=1 ); /* IE6-9 */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+
+    <script>
+        less = {
+            env: "development",
+            async: false,
+            fileAsync: false,
+            poll: 1000,
+            functions: {},
+            dumpLineNumbers: "comments",
+            relativeUrls: false
+        };
+    </script>
+
+    <script type="text/javascript" src="~/js/less.min.js"></script>
+    <script type="text/javascript" src="~/js/retina.min.js"></script>
+    <script type="text/javascript" src="~/js/modernizr.custom.71422.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script>
+        function initialize() {
+            var myLatlng = new google.maps.LatLng(40.7389348, -73.7008329);
+            var mapOptions = {
+                zoom: 15,
+                center: myLatlng
+            }
+
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: 'Company Name'
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+<body>
+    <nav class="menu menu-left">
+        <div class="close-menu-btn icon-menu active">&nbsp;</div>
+        <ul>
+            <li class="active"><a asp-action="Index">Anasayfa</a></li>
+            <li><a asp-action="Order">Ürünlerimiz</a></li>
+            <li><a asp-action="About">Hakkımızda</a></li>
+            <li><a asp-action="Contact">İletişim</a></li>
+            <li><a asp-action="Bilgiler">Profilim</a></li>
+        </ul>
+    </nav>
+
+    <div class="menu-btn"><span class="icon-menu">&nbsp;</span> Menu</div>
+
+    <div class="site-overlay"></div>
+
+    <div id="container">
+
+        <div class="container">
+            <span class="main-container row">
+                <div id="logo">
+                    <a asp-action="Index">
+                        <div class="logo-icon"><img src="~/img/logo.png" /></div>
+                        <div class="logo-type">Gurme Burger</div>
+                        <div class="logo-slogan">Gurme Burger, lezzetli burgerleriyle sizi agırlamaktan mutluluk duyar.</div>
+                    </a>
+
+                </div>
+                <div style="margin-top:20px;" id="logo">
+                    <a class="button white-button" style="padding:2px;" asp-action="Sepetim">
+                        <div><img style="height:50px; width:50px;" src="~/img/basket2.png" /></div>
+                    </a>
+                </div>
+            </span>
+        </div>
+
+        @RenderBody()
+
+        <div class="triangle top footer"></div>
+
+        <div class="container footer">
+            <div id="footer" class="main-container">
+                <div class="footer-top row">
+                    <div class="footer-info col">
+                        <div class="footer-logo">
+                            <div class="logo-icon"><img src="img/footer-logo.png" /></div>
+                        </div>
+                        <div class="footer-address">
+                            GurmeBurger</br>34353 Beşiktaş, İstanbul
+                        </div>
+                        <div class="footer-contact">
+                            (0212) 345 67 89<br /><a href="#">gurmeburger.com</a>
+                        </div>
+                    </div>
+                    <div class="footer-newsletter col">
+                        <div class="footer-newsletter-container">
+                            <form id="subscribe-newsletter">
+                                <input type="email" class="footer-input-text" value="Bültenimize katılmak için e-posta adresinizi girin..." />
+                                <input type="submit" class="button grey-button footer-input-submit" value="Abone Ol" />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="footer-bottom row">
+                    <div class="footer-copyright col">
+                        <div class="footer-copyright-text">Copyright 2014 GurmeBurger Designed by Themezy. All rights reserved.</div>
+                    </div>
+                    <div class="footer-social-media col">
+                        <div class="social-media-icon">
+                            <span class="icon-social-media icon-facebook">&nbsp;</span>
+                            <span class="icon-social-media icon-twitter">&nbsp;</span>
+                            <span class="icon-social-media icon-google">&nbsp;</span>
+                            <span class="icon-social-media icon-pinterest">&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="~/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/pushy.js"></script>
+    <script type="text/javascript" src="~/js/slider.js"></script>
+    <script type="text/javascript" src="~/js/jquery.mixitup.min.js"></script>
+    <script type="text/javascript" src="~/js/browser.selector.js"></script>
+    <script type="text/javascript" src="~/js/fastclick.js"></script>
+    <script type="text/javascript" src="~/js/script1.js"></script>
+    <script type="text/javascript">
+        $('#foods').mixItUp();
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

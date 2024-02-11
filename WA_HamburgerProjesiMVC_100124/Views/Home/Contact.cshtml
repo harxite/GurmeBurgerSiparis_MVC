@@ -1,0 +1,69 @@
+﻿@using Domain.Entities
+@model ContactVm
+
+<!DOCTYPE html>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "HomeLayout";
+}
+
+<div style="text-align: center;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1586.6944515028554!2d29.003126613948446!3d41.04428962891737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1zYmXFn2lrdGHFnyBrYXJ0YWw!5e0!3m2!1str!2str!4v1705853170588!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<div class="clear"></div>
+
+<div class="container full-page">
+    <div id="contact-us" class="main-container">
+        <div class="row">
+            <div class="main-content col">
+                <div class="title">
+                    <h1>İletişim</h1>
+                </div>
+                <div class="intro">
+                    <h2>Bizimle İletişime Geçebilirsin</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="contact-address col">
+                <div class="contact-address-container">
+                    <span class="dot dot-left-top">&nbsp;</span><span class="dot dot-right-top">&nbsp;</span><span class="dot dot-left-bottom">&nbsp;</span><span class="dot dot-right-bottom">&nbsp;</span>
+                    Gurme Burger<br />
+                    34353 Beşiktaş, İstanbul<br /><br />
+                    (0212) 345 67 89<br />
+                    gurmeburger.com<br />
+                </div>
+            </div>
+            <form class="form-group" asp-action="Contact" method="post">
+                <input asp-for="User.Id" hidden />
+                <div class="contact-form-input-data col">
+                    <div class="contact-form-input-container">
+                        <div class="contact-form-input-icon"><span class="input-icon icon-name">&nbsp;</span></div>
+                        <input value="@Model.User.FirstName @Model.User.LastName " readonly type="text" class="contact-form-input-text" />
+                    </div>
+                    <div class="contact-form-input-container">
+                        <div class="contact-form-input-icon"><span class="input-icon icon-email">&nbsp;</span></div>
+                        <input asp-for="User.Email" value="@Model.User.Email" readonly class="contact-form-input-text" />
+                    </div>
+                    <div class="contact-form-input-container">
+                        <div class="contact-form-input-icon"><span class="input-icon icon-website">&nbsp;</span></div>
+                        <input asp-for="Message.Name" type="text" class="contact-form-input-text" placeholder="Başlık..." />
+                    </div>
+                </div>
+                <div class="contact-form-input-message col">
+                    <div class="contact-form-input-container">
+                        <div class="contact-form-input-icon"><span class="input-icon icon-message">&nbsp;</span></div>
+                        <textarea asp-for="Message.Content" placeholder=" Yazınız..." class="contact-form-input-text"></textarea>
+                    </div>
+                    <div class="button-container">
+                        <input type="submit" value="Gönder" class="button grey-button contact-form-input-submit" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="clear space-area"></div>
+

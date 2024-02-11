@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Domain.Entities.Category>
+
+@{
+    ViewData["Title"] = "Categories";
+    Layout = "AdminLayout_";
+}
+
+<h1>Categories</h1>
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <text> @TempData["message"] </text>
+    </div>
+}
+
+<p>
+    <a class="btn btn-light btn-rounded btn-fw" asp-action="CreateCategory">Create New Category</a>
+</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-bg-9">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th> Process </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int i = 1;
+                    }
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @i </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                    <a asp-action="UpdateCategory" asp-route-id="@item.Id"> <i class="mdi mdi-table-edit icon-md text-warning"></i></a>
+                                    &nbsp;&nbsp;&nbsp
+                                <a asp-action="DeleteCategory" asp-route-id="@item.Id"> <i class="mdi mdi-delete-forever icon-md text-danger"></i></a>
+                                    <span>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
